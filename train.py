@@ -15,8 +15,8 @@ import brock
 
 # get the data -- sklearn bunch object, has data and target names
 CATEGORIES = brock.CATEGORIES
-train = fetch_20newsgroups(subset='train',shuffle=True, random_state=42, categories=CATEGORIES)
-test = fetch_20newsgroups(subset='test',shuffle=True, random_state=42, categories=CATEGORIES)
+train = fetch_20newsgroups(subset='train',shuffle=True, random_state=42, categories=CATEGORIES, remove=('headers', 'footers', 'quotes'))
+test = fetch_20newsgroups(subset='test',shuffle=True, random_state=42, categories=CATEGORIES, remove=('headers', 'footers', 'quotes'))
 
 # breakout into train/test groups
 X_train = train.data
