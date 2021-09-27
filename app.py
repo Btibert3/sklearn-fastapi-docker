@@ -61,14 +61,16 @@ async def get_prediction(data: Message):
     question = data['text']
     pred = model.predict([question])
     int_p = int(np.round(pred, 4))
+    confidence = list(model.predict_proba([question]))
+    maxc = int(np.argmax(confidence[0]))
+    float_c = float(np.round(confidence[0][maxc], 3))
     # pred_scores = model.predict_proba([question])
     # pred_scores = pred_scores[0]
     # pred_scores = np.array(pred_scores)
     # scores = [{CATEGORIES[k]:float(v) for k, v in enumerate(pred_scores)}]
     resp = {'pred': int_p,
-            'label': str(CATEGORIES[int_p])}
+            'label': str(CATEGORIES[int_p]),
+            'score': float_c}
     # resp = {0:1, 1:2}
     return resp
-
-
 
