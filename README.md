@@ -2,6 +2,8 @@
 
 This repo aims to provide a basic example, but one that highlights how to build and deploy a Scikit-Learn Model with FastAPI and Docker.  Depending on your use-case, this infrastructure can go a long way in production and let's you focus on testing and optimizing models.  Unless deep-learning is necessary, the sklearn ecosystem provides a rich set of tooling for both unsupervised and supervised tasks with a simple interface and limited complexity for deployment.
 
+> I am a big fan of using conda for managing environments, though I really on use it for the base.  Every package I install is via `pip` after the environment is activated, after which I freeze via `pip freeze > requirements.txt`.  This flow may not be perfect, but it has yet to prove to be an issue when sharing my projects.
+
 
 # Process
 
@@ -21,3 +23,4 @@ Now that you have dockerized your ML app, you can access the docs at `http://0.0
 - Add code to allow bulk processing endpoints.  For example, pass a list of 1000 texts, and get 1000 predictions back, as opposed to one at a time.
 - Add logging and map volumes to save the files.
 - Add authentication
+
