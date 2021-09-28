@@ -64,7 +64,8 @@ async def get_prediction(data: Message):
     confidence = list(model.predict_proba([question]))
     maxc = int(np.argmax(confidence[0]))
     float_c = float(np.round(confidence[0][maxc], 3))
-
+    
+    # return the values.  Code above removed numpy return values, which will choke FastAPI.
     resp = {'pred': int_p,
             'label': str(CATEGORIES[int_p]),
             'score': float_c}
